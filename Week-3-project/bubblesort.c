@@ -1,64 +1,48 @@
 #include <stdio.h>
 #include "cs50.h"
-#include <string.h>
-#include <stdlib.h>
 
-void swap(int *a, int *b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+void sort_array(int array[], int size);
 
 int main()
 {
-    int a = 10;
-    int b = 20;
+    int size = get_int("How many values:");
 
-    swap(&a, &b);
+    int numbers[size];
 
-    printf("A = %d\n ", a);
-    printf("B = %d\n ", b);
-
-    void Bubble_sort(int arr[], int size)
+    for (int i = 0; i < size; i++)
     {
-        for (int i = 0; i < size - 1; i++)
-        {
-            for (int j = 0; j < size - 1 - i; j++)
-
-                if (arr[j] > arr[j + 1])
-                {
-                    swap(&arr[j], &arr[j + 1]);
-                }
-        }
+        numbers[i] = get_int("Your number: ");
     }
 
-    void print_array(int arra[], int sizee)
+    printf("Before sorting\n");
+    for (int i = 0; i < size; i++)
     {
-        for (int i = 0; i < sizee; i++)
-        {
-            printf(" %d ", arra[i]);
-        }
+        printf("%i ", numbers[i]);
         printf("\n");
     }
 
-    {
-        int SIZES[] = {10, 5000, 20000};
-        for (int i = 0; i < 3; i++)
-        {
-            int n = SIZES[i];
-            printf("------------------------------");
-            printf("Testing array of size %d\n ", n);
+    sort_array(numbers, size);
 
-            int array[n];
-            for (int i = 0; i < n; i++)
+    printf("After sorting\n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%i", numbers[i]);
+    }
+}
+
+// Bubble sort function
+void sort_array(int array[], int size)
+{
+    int outter_index, inner_index, temp;
+    for (outter_index = 0; outter_index < size - 1; outter_index++)
+    {
+        for (inner_index = 0; inner_index < size - outter_index - 1; inner_index++)
+        {
+            if (array[inner_index] > array[inner_index + 1])
             {
-                array[i] = rand();
-            }
-            if (n <= 20)
-            {
-                printf("Array after sorting\n");
-                print_array(array, n);
+                temp = array[inner_index];
+                array[inner_index] = array[inner_index + 1];
+                array[inner_index + 1] = temp;
             }
         }
     }
