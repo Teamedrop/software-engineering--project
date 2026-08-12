@@ -42,5 +42,27 @@ int main(void)
         }
     }
 
+    int height = 2;
+    int width = 2;
+    RGBTRIPLE sepia_image[2][2] = {
+        {{100, 50, 20}, {200, 150, 100}},
+        {{10, 80, 160}, {255, 255, 255}}};
+
+    printf("Before sepia:\n");
+
+    sepia(height, width, sepia_image);
+    printf("\nAfter sepia:\n");
+    for (int row = 0; row < height; row++)
+    {
+        for (int col = 0; col < width; col++)
+        {
+            printf("Pixel [%d][%d] : R=%d G=%d B=%d\n",
+                   row,
+                   col,
+                   sepia_image[row][col].rgbtRed,
+                   sepia_image[row][col].rgbtGreen,
+                   sepia_image[row][col].rgbtBlue);
+        }
+    }
     return 0;
 }
