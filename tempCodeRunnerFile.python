@@ -1,0 +1,15 @@
+import math as m
+#import tkinter as tk
+
+a = input('input a: ')
+b = input('input b: ')
+c = input('input c: ')
+
+a == int(a)
+b == int(b)
+c == int(c)
+
+x = (-1*b + m.sqrt(b*m.pow(2) - 4*a*c))/(2*a)
+y = (-1*b - m.sqrt(b*m.pow(2) - 4*a*c))/(2*a)
+
+print(f'your answer is, {x,y}')
