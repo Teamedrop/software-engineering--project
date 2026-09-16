@@ -23,6 +23,9 @@ elif Operations.strip().lower() in ['raise to power', 'power of', 'power', 'cube
 elif Operations.strip().lower() in ['square of', 'square']:
         Squ = 'Square'
 
+elif Operations.strip().lower() == 'factorial':
+        Fac = 'Factorial'        
+
 if Operations.strip().lower() in ['addition', 'add', 'sum', 'plus']:
         no = int(input(f'How many numbers do you want to {Add}? '))
 
@@ -40,6 +43,7 @@ elif Operations.strip().lower() == 'modulus':
 
 elif Operations.strip().lower() in ['raise to power', 'power of', 'power']:
         n  = int(input(f'How many numbers do you want to {Pow}? '))
+
 
 
 # For Addition
@@ -158,3 +162,22 @@ elif Operations.strip().lower() == 'logarithm':
         second_log = int(input('Enter your base number: '))
         total_log = math.log(first_log , second_log)
         print(f'Your final answer is {total_log}') 
+
+
+# For factorial
+elif Operations.strip().lower() == 'factorial':
+    tot = 1
+
+try:
+        tot_input = int(input('Enter your number: '))
+        tot = 1
+        for i in range(1, tot_input + 1):
+                tot *= i
+        print(f'Your answer is {tot}')
+except ValueError:
+        print('Invalid character')        
+                      
+         
+
+
+        
