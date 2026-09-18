@@ -175,7 +175,7 @@ try:
                 tot *= i
         print(f'Your answer is {tot}')
 except ValueError:
-        print('Invalid character')        
+        print('Invalid character ')        
                       
          
 
