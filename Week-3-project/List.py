@@ -6,8 +6,6 @@ print()
 mod_1 = input('If it is add_task, read_task and update_task, Enter A...... ' \
 'If it is add_task, read_task and delete_task, Enter B  ')
 
-a = 'add_task, read_task and update_task'
-b = 'add_task, read_task and delete_task'
 
 quest_0 = int(input('How many task or tasks do you want to perform? '))
 
