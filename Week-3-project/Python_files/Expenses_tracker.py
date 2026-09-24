@@ -5,9 +5,9 @@ cat = []
 a_1 = int(input('How many things did you buy? '))
 print()
 
-a_12 = input('If you want to add, read, search and total expenses, type A ' \
-' If you want to add, read, search and delete expenses, type B ' \
-'If you want to add, read and total expenses, type C ' \
+a_12 = input('If you want to add, read and total expenses, type A ' \
+' If you want to add, read and search expenses, type B ' \
+'If you want to add, read and delete expenses, type C ' \
 'If you want to add, read and categorize expenses, type D ')
 print()
 
@@ -57,20 +57,26 @@ def search_expenses():
          print()
 
 def total_expenses():
-  print(f'The total sum of yout items is {sum(amt)}')     
+  print(f'The total sum of your items is {sum(amt)}')     
 
 def delete_expenses():
    q_5 = input('Which item do you want to delete? ')   
    q_5a = q_5.strip().lower()
 
-   print('Before deletion:', task)
 
+   found = False
    for i in range(len(task)):
          if task[i].strip().lower() == q_5a:
           task.pop(i)
           amt.pop(i)
-         break    
-   print('After deletion:', task) 
+          cat.pop(i)
+         print('After deletion: ', task)
+         found = True
+         break
+
+   if task[i].strip().lower != q_5a:
+      print('Item not found')
+   
 
 choice = a_12.strip().upper()
 
@@ -82,12 +88,13 @@ if choice == 'A':
 elif choice == 'B':
    add_expenses()
    read_expenses()
-   delete_expenses()
+   search_expenses()
 
 elif choice == 'C':
      add_expenses()
      read_expenses()
-     search_expenses()
+     delete_expenses()
+     
 
 elif choice == 'D':
      add_expenses()
