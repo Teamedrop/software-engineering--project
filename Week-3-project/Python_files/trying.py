@@ -1,34 +1,122 @@
-todo_list = []
+## TOOD APP
+import time
+from datetime import datetime
+import shlex
 
-for i in range(50):
-    title = f"Task {i}"
+"""
+list of dictionaries
+[{id: 1, title: "new tast"}, {id: 2, title: "second task"}]
+O(n)
 
-    obj = {"id": i, "title": title}
+dictionary of dictionaries
 
-    todo_list.append(obj)
+{
+ 1: { title: "New task"},
+ 2, {title: "Second Task"}
+}
+0(1)
+"""
+todo_storage = {}
 
-    todo_obj[i] = {"title": title}
+
+def create_task(title, description=None, deadline=None):
+    task = {
+        "title": title,
+        "description": description,
+        "deadline": deadline,
+        "is_completed": False
+    }
+
+    index = 0
+    if len(todo_storage) > 0:
+        index = max(list(todo_storage.keys())) + 1
+
+    todo_storage[index] = task
+
+    return {index: task}
 
 
-# print("Todo Object", todo_obj)
-# print("\n\nTodo List", todo_list)
+def list_all_todo():
+    todo_list = []
+    for index, task in todo_storage.items():
+        todo_list.append(task)
+    return todo_list
 
-search_id = 49
 
-list_start = time.perf_counter()
-for todo in todo_list:
-    if todo["id"] == search_id:
-        print("Found")
+def get_task(index):
+    if todo_storage.get(index, None):
+        return todo_storage[index]
+    return None
 
-list_stop = time.perf_counter()
-list_time = list_stop - list_start
 
-print("Time elapsed for list search is ", list_stop - list_start)
+def update_task(index, is_completed: str):
 
-dict_start = time.perf_counter()
-if todo_obj[search_id]:
-    print("Found in Dict")
-dict_stop = time.perf_counter()
-dict_time = dict_stop - dict_start
+    task = get_task(index)
+    if not task:
+        return None
 
-print("Time difference is ", list_time - dict_time)
+    if is_completed == "True":
+        is_completed = True
+    elif is_completed == "False":
+        is_completed = False
+    else:
+        raise ValueError("Not a valid input")
+
+    task["is_completed"] = is_completed
+
+
+def parse_arguments(arg_string):
+    try:
+
+        tokens = shlex.split(arg_string)
+        arg_dict = {}
+
+        for token in tokens:
+            if "=" in token:
+                key, value = token.split("=")
+                arg_dict[key.strip()] = value.strip()
+        return arg_dict
+    except Exception:
+        return {}
+
+
+def delete_task(index):
+    task = get_task(index)
+    if not task:
+        return None
+    
+
+    del todo_storage[index]
+
+
+name = 'main'
+if name == "main":
+    while 1:
+        user_command = input("$$$ ")
+
+        parts = user_command.split(" ", 1)
+        command = parts[0].upper()
+
+        if command == "QUIT":
+            exit()
+
+        elif command == "ADD":
+            args = parse_arguments(parts[1])
+            new_task = create_task(title=args.get("title"), description=args.get("description"))
+
+        elif command == "ALL":
+            for key, val in todo_storage.items():
+                print(f"{key}: {val}")
+
+        elif command == "GET":
+            args = parse_arguments(parts[1])
+            index = args.get("id")
+            task = get_task(index)
+            print(task)
+            if not task:
+                print(f"index {index} does not exist")
+            else:
+                print(task)
+
+        else:
+            print(command,":Command not found")

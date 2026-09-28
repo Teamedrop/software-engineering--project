@@ -11,9 +11,9 @@ int main()
 {
     int prompt = get_int("How many students? ");
 
-    data student[prompt];
+    data student[prompt]
 
-    for (int i = 0; i < prompt; i++)
+        for (int i = 0; i < prompt; i++)
     {
         student[i].name = get_string("Name: ");
         student[i].number = get_int("Number: ");
