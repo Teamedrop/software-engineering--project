@@ -1,1 +1,3 @@
-task = []
+motion = {
+ 'Mon': 'read',
+ 'Tue': 'code',
