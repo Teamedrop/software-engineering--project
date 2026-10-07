@@ -49,8 +49,8 @@ elif Operations.strip().lower() in ['raise to power', 'power of', 'power']:
 # For Addition
 value = []
 if Operations.strip().lower() in ['addition', 'add', 'sum', 'plus']:
-            for _ in range(no):
-                    val = int(input("Enter your number: "))
+            for i in range(no):
+                    val = int(input(f"Enter your {i + 1} number: "))
                     value.append(val)
             Addition = sum(value)
 
