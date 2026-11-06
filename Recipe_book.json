@@ -1,0 +1,27 @@
+{
+    "1": {
+        "Name": "Jollof rice",
+        "Ingredients": [
+            "Rice",
+            "Water",
+            "Salt",
+            "Curry"
+        ],
+        "Instructions": "Cook it very well"
+    },
+    "2": {
+        "Name": "Fried rice",
+        "Ingredients": [
+            "Rice",
+            "Beef",
+            "Colouring",
+            "Green peas"
+        ],
+        "Instructions": "Cook in a neat environment"
+    },
+    "3": {
+        "Name": "eba",
+        "Ingredients": "water, garri and gas",
+        "Instructions": "prepare it in boiling water"
+    }
+}

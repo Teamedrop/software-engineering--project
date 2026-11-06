@@ -90,20 +90,32 @@ if quest_0.strip().lower() in ['divide', 'division']:
     ask_1 = int(input('How many numbers do you want to divide? '))
     ask_2 = float(input('Enter your first number? '))
     for i in range(2, ask_1 + 1):
-      ask_3 = float(input(f'Enter your {i} number: '))
-      ask_2 /= ask_3
-      print(f'Your final answer is {ask_2:.4f}')
-      print()
-      ask_4 = input('Do you want to continue the operation. \n If YES press Y \n If NO press N ')
-      if ask_4.strip().lower() == 'y':
-         ask_5 = int(input('How many numbers do you want to divide? '))
-         ask_6 = float(input('Enter your first number? '))
-         for i in range(2, ask_5 + 1):
-          ask_7 = float(input(f'Enter your {i} number: '))
+     while True:
+      ask_3 = float(input(f'Enter your {i} number '))
+      if ask_3 == 0:
+         print('Zero can\'t be divisible. Enter another number')
+      else:
+         break
+    ask_2 /= ask_3
+    print(f'Your final answer is {ask_2:.4f}')
+    
+    print()
+    ask_4 = input('Do you want to continue the operation. \n If YES press Y \n If NO press N ')
+    if ask_4.strip().lower() == 'y':
+          ask_5 = int(input('How many numbers do you want to divide? '))
+          ask_6 = float(input('Enter your first number? '))
+          for i in range(2, ask_5 + 1):
+             while True:
+              ask_7 = float(input(f'Enter your {i} number: '))
+              if ask_7 == 0:
+                print('Zero not divisible. Enter another number')
+              else:
+                  break
           ask_6 /= ask_7
           print(f'Your final answer is {ask_6:.4f}')
-      elif ask_4.strip().lower() == 'n':
+    elif ask_4.strip().lower() == 'n':
          print('Operation ended, thank you') 
+      
 
 
          
@@ -111,16 +123,16 @@ choice = quest_0.strip().lower()
 if choice in ['add', 'addition', 'sum']:
    add()
 
-if choice in ['subtract', 'sub', 'subtraction', 'minus']:
+elif choice in ['subtract', 'sub', 'subtraction', 'minus']:
    sub()
 
-if choice == 'cube root':
+elif choice == 'cube root':
    cube_root()
 
-if choice in ['multiply', 'times', 'multiplication']:
+elif choice in ['multiply', 'times', 'multiplication']:
    multiply()
 
-if choice in ['divide', 'division']:
+elif choice in ['divide', 'division']:
    division()
 
 else:

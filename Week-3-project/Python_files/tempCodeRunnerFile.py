@@ -1,3 +1,2 @@
-motion = {
- 'Mon': 'read',
- 'Tue': 'code',
+grade = {}
+names = []
