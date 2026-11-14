@@ -20,8 +20,17 @@
         "Instructions": "Cook in a neat environment"
     },
     "3": {
-        "Name": "eba",
-        "Ingredients": "water, garri and gas",
-        "Instructions": "prepare it in boiling water"
+        "Name": "Beans",
+        "Ingredients": [
+            "Beans",
+            " salt",
+            " water and pepper"
+        ],
+        "Instructions": [
+            "Wash the pot",
+            " wash the beans",
+            " put the pot on fire",
+            " pour water and beans inside the pot and let it steam "
+        ]
     }
 }

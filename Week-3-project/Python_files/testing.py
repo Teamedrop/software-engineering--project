@@ -26,26 +26,30 @@
     #print(content['Instructions'])    
 import json
 
-cooking = {}
+cooking = {
+    1 : {'Name': 'Fried rice', 'Ingredients': ['rice', 'salt', 'pepper']},
+    2 : {'Name': 'Beans', 'Ingredients': ['beans', 'onions', 'oil']}
+}
 
-def save_recipe():
-    with open('recipes.json', 'w') as file:
-        json.dump(cooking, file, indent=4)
+quest_1 = input('Which food recipe do you want to edit ').strip().lower()
 
-# Read in JSON
-with open('recipes.json', 'r') as file:
-    json.load(file)
+found = False
 
-def add_recipe():
-    recipe = {
-        'Name': 'Fried rice',
-        'Ingredient': ['Pepper', 'Rice', 'Salt'],
-        'Instructions': 'Cook it very well'
-    }
-    
+for keys, values in cooking.items():
+    if values['Name'].lower() == quest_1:
+        quest_2 = input('Enter your new food name: ')
+        quest_3 = input('Enter your new food ingredients: ')
+        
+        values['Name'] = quest_2
+        values['Ingredients'] = quest_3.split(',')
+        
+        found = True
+        break
 
-    cooking = recipe
-    print(cooking)
+    if not found:
+        print('Food not found')
 
-add_recipe()
-save_recipe()    
+    else:
+        with open('testng.json', 'w') as file:
+            json.dump(cooking, file, indent= 4)
+            print('Recipe saved sucessfully! ')        

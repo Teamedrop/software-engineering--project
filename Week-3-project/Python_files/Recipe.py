@@ -17,12 +17,14 @@ def save_recipe():
 def add_recipe():
  quest_1 = input('What is the name of the food? ').capitalize()
  quest_2 = input('What are the ingredients used in preparing the food? ').capitalize()
+ quest_2_1 = quest_2.split(',')
  quest_3 = input('What are the instructions you need to follow to cook the food? ').capitalize()
+ quest_3_1 = quest_3.split(',')
 
  Recipes = {
    'Name': quest_1,
-   'Ingredients': quest_2,
-   'Instructions': quest_3
+   'Ingredients': quest_2_1,
+   'Instructions': quest_3_1
  }
  new_recipe = len(Recipe) + 1 
 
@@ -65,3 +67,31 @@ elif choice in ['search', 'search recipe']:
 
 else:
   print('Invalid request')  
+
+while True:
+  print("\n Recipe Book: ")
+  print('1. Add recipe ')
+  print('2. View recipe ')
+  print('3. Search recipe ')
+  print('0. Exist ')
+
+  quest_5 = input('Type the function you want to use or use the number: ').strip().lower().capitalize()
+
+  if quest_5 == '1' or quest_5 in ['add recipe', 'add']:
+    add_recipe()
+
+  elif quest_5 == '2' or quest_5 in ['view recipe', 'view']:
+    view_recipe()
+
+  elif quest_5 == '3' or quest_5 in ['search recipe', 'search']:
+    search_recipe()
+
+  elif quest_5 == '0' or quest_5 == 'exist':
+    print('Goodbye your recipe are saved! ')
+    break 
+
+  else:
+    print('Invalid selection, please enter 1, 2, 3')   
+
+
+
