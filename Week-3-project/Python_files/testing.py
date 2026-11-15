@@ -31,25 +31,27 @@ cooking = {
     2 : {'Name': 'Beans', 'Ingredients': ['beans', 'onions', 'oil']}
 }
 
-quest_1 = input('Which food recipe do you want to edit ').strip().lower()
+quest_1 = input('Which food recipe do you want to edit? ').strip().lower()
 
 found = False
 
 for keys, values in cooking.items():
     if values['Name'].lower() == quest_1:
-        quest_2 = input('Enter your new food name: ')
-        quest_3 = input('Enter your new food ingredients: ')
-        
+        quest_2 = input('What is the name of the new food? ')
+        quest_3 = input('What is/are the ingredient(s) of the new food? ').split(',')
+
         values['Name'] = quest_2
-        values['Ingredients'] = quest_3.split(',')
+        values['Ingredients'] = quest_3
+
         
+
+        with open('testing.json','w') as file:
+             json.dump(cooking, file, indent= 4)
+             print('Recipe updated sucessfully! ')
+
+
         found = True
         break
-
-    if not found:
-        print('Food not found')
-
-    else:
-        with open('testng.json', 'w') as file:
-            json.dump(cooking, file, indent= 4)
-            print('Recipe saved sucessfully! ')        
+    
+else:
+        print(' Recipe not found')

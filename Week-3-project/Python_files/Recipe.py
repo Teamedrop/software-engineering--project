@@ -5,7 +5,7 @@ Recipe = {
     2: {'Name': 'Fried rice', 'Ingredients': ['Rice', 'Beef', 'Colouring', 'Green peas'], 'Instructions': 'Cook in a neat environment' }
 }
 
-quest_0 = input('Do you want to View recipe or Add recipe or Search recipe? ')
+quest_0 = input('Do you want to View recipe or Add recipe or Search recipe or Edit recipe? ')
 
 
 # Save in Json
@@ -51,6 +51,26 @@ def search_recipe():
       print('Instructions:', i['Instructions'])
   else: 
        print('Food recipe not found')
+
+
+# Edit recipe
+def edit_recipe():
+  quest_6 = input('Which food recipe do you want to edit? ')
+
+  for values in Recipe.values():
+    if values['Name'].lower() == quest_6:
+
+      quest_7 = input('Enter your new food name: ')
+      quest_8 = input('Enter your new food ingredient(s): ')
+      quest_9 = input('Enter your new foood instructions: ')
+
+      values['Name'] = quest_7
+      values['Ingredients'] = quest_8
+
+      save_recipe()
+
+  else: 
+      print('Food recipe not found')
            
 
 choice = quest_0.strip().lower()
@@ -65,6 +85,9 @@ elif choice in ['view', 'view recipe']:
 elif choice in ['search', 'search recipe']:
   search_recipe()
 
+elif choice in ['edit', 'edit recipe']:
+  edit_recipe()
+
 else:
   print('Invalid request')  
 
@@ -73,6 +96,7 @@ while True:
   print('1. Add recipe ')
   print('2. View recipe ')
   print('3. Search recipe ')
+  print('4. Edit recipe ')
   print('0. Exist ')
 
   quest_5 = input('Type the function you want to use or use the number: ').strip().lower().capitalize()
@@ -86,12 +110,15 @@ while True:
   elif quest_5 == '3' or quest_5 in ['search recipe', 'search']:
     search_recipe()
 
+  elif quest_5 == '4' or quest_5 in ['edit', 'edit recipe']:
+    edit_recipe()  
+
   elif quest_5 == '0' or quest_5 == 'exist':
     print('Goodbye your recipe are saved! ')
     break 
 
   else:
-    print('Invalid selection, please enter 1, 2, 3')   
+    print('Invalid selection, please enter 1, 2, 3, 4 or 0')   
 
 
 

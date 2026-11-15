@@ -1,1 +1,17 @@
-{"Name": "coconut", "Ingredients": "oil, water"}
+{
+    "1": {
+        "Name": "Fried rice",
+        "Ingredients": [
+            "rice",
+            "salt",
+            "pepper"
+        ]
+    },
+    "2": {
+        "Name": "eba ",
+        "Ingredients": [
+            "garri",
+            " water and pot"
+        ]
+    }
+}
