@@ -103,6 +103,7 @@ while True:
 
   if quest_5 == '1' or quest_5 in ['add recipe', 'add']:
     add_recipe()
+    save_recipe()
 
   elif quest_5 == '2' or quest_5 in ['view recipe', 'view']:
     view_recipe()
