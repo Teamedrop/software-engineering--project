@@ -43,17 +43,13 @@ def search_recipe():
  with open('Recipe_book.json','r') as file:
   info = json.load(file)
 
-  found = False 
   
  for i in info.values():
      if quest_4 == i['Name'].lower():
       print('Name:', i['Name'])
       print('Ingredients:', i['Ingredients'])
       print('Instructions:', i['Instructions'])
-      found = True
-      break 
-     
- if not found: 
+ else: 
       print('\n')
       print('Food recipe not found')
 
@@ -81,12 +77,12 @@ def edit_recipe():
 
 
 while True:
-  print("\n Recipe Book: ")
-  print('1. Add recipe ')
-  print('2. View recipe ')
-  print('3. Search recipe ')
-  print('4. Edit recipe ')
-  print('0. Exist ')
+  print("""\n Recipe Book: 
+  1. Add recipe
+  2. View recipe
+  3. Search recipe
+  4. Edit recipe
+  0. Exit""")
 
   quest_5 = input('Type the function you want to use or use the number: ').strip().lower().capitalize()
 
@@ -103,7 +99,7 @@ while True:
   elif quest_5 == '4' or quest_5 in ['edit', 'edit recipe']:
     edit_recipe()  
 
-  elif quest_5 == '0' or quest_5 == 'exist':
+  elif quest_5 == '0' or quest_5 == 'exit':
     print('Goodbye your recipe are saved! ')
     break 
 
