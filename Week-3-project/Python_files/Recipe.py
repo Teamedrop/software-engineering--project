@@ -5,7 +5,6 @@ Recipe = {
     2: {'Name': 'Fried rice', 'Ingredients': ['Rice', 'Beef', 'Colouring', 'Green peas'], 'Instructions': 'Cook in a neat environment' }
 }
 
-quest_0 = input('Do you want to View recipe or Add recipe or Search recipe or Edit recipe? ')
 
 
 # Save in Json
@@ -44,13 +43,19 @@ def search_recipe():
  with open('Recipe_book.json','r') as file:
   info = json.load(file)
 
-  for i in info.values():
+  found = False 
+  
+ for i in info.values():
      if quest_4 == i['Name'].lower():
       print('Name:', i['Name'])
       print('Ingredients:', i['Ingredients'])
       print('Instructions:', i['Instructions'])
-  else: 
-       print('Food recipe not found')
+      found = True
+      break 
+     
+ if not found: 
+      print('\n')
+      print('Food recipe not found')
 
 
 # Edit recipe
@@ -73,23 +78,7 @@ def edit_recipe():
       print('Food recipe not found')
            
 
-choice = quest_0.strip().lower()
 
-if choice in ['add', 'add recipe']:
- add_recipe()
- save_recipe()
-
-elif choice in ['view', 'view recipe']:
-  view_recipe()
-
-elif choice in ['search', 'search recipe']:
-  search_recipe()
-
-elif choice in ['edit', 'edit recipe']:
-  edit_recipe()
-
-else:
-  print('Invalid request')  
 
 while True:
   print("\n Recipe Book: ")
