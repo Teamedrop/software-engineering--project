@@ -45,13 +45,13 @@ def search_recipe():
 
   
  for i in info.values():
-     if quest_4 == i['Name'].lower():
+    if quest_4 == i['Name'].lower():
       print('Name:', i['Name'])
       print('Ingredients:', i['Ingredients'])
       print('Instructions:', i['Instructions'])
- else: 
-      print('\n')
-      print('Food recipe not found')
+      return
+ else:
+       print('Food recipe not found')
 
 
 # Edit recipe
